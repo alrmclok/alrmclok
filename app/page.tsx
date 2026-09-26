@@ -3,6 +3,11 @@ import Sidebar, { StarIcon } from "@/components/sidebar";
 import { PROJECTS_DATA } from "./projects/data";
 import Footer from "@/components/footer";
 
+export const metadata = {
+  title: "Home · Almira",
+  description: "Metadata description, nothing here.",
+};
+
 export default function HomePage() {
   const featuredProjects = PROJECTS_DATA.slice(0, 3);
 

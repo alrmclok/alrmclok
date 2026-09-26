@@ -1,6 +1,11 @@
 import Sidebar from "@/components/sidebar";
 import Footer from "@/components/footer";
 
+export const metadata = {
+  title: "About · Almira",
+  description: "Metadata description, nothing here.",
+};
+
 const INTERESTS = [
   // mix your actual interests + fandoms here, in whatever order feels right
   "geometry dash",

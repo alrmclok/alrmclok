@@ -5,7 +5,7 @@ import { PROJECTS_DATA } from "./data";
 
 export const metadata = {
   title: "Projects · Almira",
-  description: "A full archive of things I've built.",
+  description: "Metadata description, nothing here.",
 };
 
 export default function ProjectsPage() {
