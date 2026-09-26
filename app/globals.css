@@ -1,9 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffaf1;
+  --foreground: #4d2b19;
+
+  --accent: #e85d04;
+  --accent-dark: #9d3c00;
+
+  --border: #d8b99d;
+  --border-soft: #ead7c3;
+
+  --surface: #fffdf7;
+  --surface-soft: #fff8ec;
+  --paper: #f7ecdc;
 }
+
+/* Tailwind theme */
 
 @theme inline {
   --color-background: var(--background);
@@ -12,15 +24,144 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
 }
 
 body {
+  min-width: 320px;
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Focus */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Shared sticker cards */
+
+.sticker-card {
+  border: 2px solid var(--border);
+  background: var(--surface);
+  box-shadow: 3px 4px 0 var(--border-soft);
+}
+
+.sticker-card-lg {
+  border: 2px solid #8f3600;
+  background: var(--surface);
+  box-shadow: 6px 7px 0 #d8bba0;
+}
+
+.sticker-tag {
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  background: var(--surface-soft);
+  font-weight: 700;
+}
+
+.sticker-btn {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 3px 3px 0 var(--accent-dark);
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    background-color 150ms ease;
+}
+
+.sticker-btn:hover {
+  background: #d95000;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--accent-dark);
+}
+
+.sticker-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--accent-dark);
+}
+
+/* Prevent decorative elements from creating horizontal overflow */
+
+.no-x-overflow {
+  overflow-x: clip;
+}
+
+/* Themed scrollbar */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border: 2px solid var(--background);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
