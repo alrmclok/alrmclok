@@ -3,18 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-function StarIcon({
-  className = "w-3.5 h-3.5 fill-[#E85D04]",
-}: {
-  className?: string;
-}) {
-  return (
-    <svg className={className} viewBox="0 0 24 24">
-      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-    </svg>
-  );
-}
+import { useEffect } from "react";
 
 const NAV_ITEMS = [
   {
@@ -91,13 +80,12 @@ function ProfileCard() {
         </p>
 
         <p className="mt-4 max-w-[220px] text-[10px] font-semibold leading-5 text-[#805238]">
-          making websites, experiments, 3D things &amp; occasionally useful
-          chaos.
+          making websites or drawing stuff &amp; occasionally GD level.
         </p>
 
         <div className="mt-5 flex flex-wrap justify-center gap-1.5">
           <span className="rounded border border-[#e85d04] bg-[#e85d04] px-2 py-1 text-[9px] font-black text-white">
-            she/her
+            she/they
           </span>
 
           <span className="flex items-center gap-1 rounded border border-[#d7b99d] bg-white px-2 py-1 text-[9px] font-black text-[#70432a]">
@@ -108,7 +96,7 @@ function ProfileCard() {
       </div>
 
       <div className="mt-5 border-t border-dashed border-[#ddc5ad] pt-4 text-center text-[8px] font-bold uppercase tracking-[0.15em] text-[#b08362]">
-        portfolio / personal archive
+        portfolio / something else
       </div>
     </div>
   );
@@ -143,7 +131,9 @@ function NavList({
               }`}
             >
               {/* Added active text color styling right on this text+icon layout box */}
-              <span className={`flex items-center gap-2.5 ${isActive ? "text-white" : ""}`}>
+              <span
+                className={`flex items-center gap-2.5 ${isActive ? "text-white" : ""}`}
+              >
                 {item.icon}
                 {item.label}
               </span>
@@ -164,36 +154,84 @@ function NavList({
 }
 
 function NowPlaying() {
-  return (
+  const [data, setData] = useState<{
+    playing: boolean;
+    title?: string;
+    artist?: string;
+    albumArt?: string | null;
+    url?: string;
+  } | null>(null);
+
+  useEffect(() => {
+    const fetchNowPlaying = async () => {
+      try {
+        const res = await fetch("/api/nowplaying");
+        const json = await res.json();
+        setData(json);
+      } catch {
+        setData({ playing: false });
+      }
+    };
+
+    fetchNowPlaying();
+    const interval = setInterval(fetchNowPlaying, 15000); // poll every 15s
+    return () => clearInterval(interval);
+  }, []);
+
+  const isPlaying = data?.playing;
+  const title = data?.title ?? "nothing playing";
+  const artist = data?.artist ?? "check back later";
+
+  const content = (
     <div className="rounded-xl border-2 border-[#d8b99d] bg-[#fffaf1] p-3 shadow-sm">
       <div className="mb-3 flex items-center justify-between">
         <span className="text-[8px] font-black uppercase tracking-[0.18em] text-[#e85d04]">
           now playing
         </span>
 
-        <div className="flex items-end gap-[2px]">
-          <span className="h-2 w-[2px] animate-pulse bg-[#e85d04]" />
-          <span className="h-3 w-[2px] animate-pulse bg-[#e85d04] [animation-delay:150ms]" />
-          <span className="h-1.5 w-[2px] animate-pulse bg-[#e85d04] [animation-delay:300ms]" />
-        </div>
+        {isPlaying && (
+          <div className="flex items-end gap-[2px]">
+            <span className="h-2 w-[2px] animate-pulse bg-[#e85d04]" />
+            <span className="h-3 w-[2px] animate-pulse bg-[#e85d04] [animation-delay:150ms]" />
+            <span className="h-1.5 w-[2px] animate-pulse bg-[#e85d04] [animation-delay:300ms]" />
+          </div>
+        )}
       </div>
 
       <div className="flex items-center gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#e1c5a7] bg-[#fff0dd] text-lg text-[#e85d04]">
-          ♫
-        </div>
+        {data?.albumArt ? (
+          <img
+            src={data.albumArt}
+            alt={title}
+            className="h-11 w-11 shrink-0 rounded-lg border border-[#e1c5a7] object-cover"
+          />
+        ) : (
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#e1c5a7] bg-[#fff0dd] text-lg text-[#e85d04]">
+            ♫
+          </div>
+        )}
 
         <div className="min-w-0">
           <p className="truncate text-[10px] font-black text-[#643318]">
-            track title
+            {title}
           </p>
           <p className="mt-0.5 truncate text-[9px] font-semibold text-[#a2633d]">
-            artist name
+            {artist}
           </p>
         </div>
       </div>
     </div>
   );
+
+  if (data?.url && isPlaying) {
+    return (
+      <a href={data.url} target="_blank" rel="noopener noreferrer">
+        {content}
+      </a>
+    );
+  }
+
+  return content;
 }
 
 export default function Sidebar() {
@@ -261,33 +299,31 @@ export default function Sidebar() {
           style={{
             backgroundColor: "#e85d04",
             backgroundImage: `
-      repeating-linear-gradient(
-        90deg,
-        transparent 0,
-        transparent 10px,
-        rgba(255,255,255,.2) 10px,
-        rgba(255,255,255,.2) 20px
-      )
-    `,
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 10px,
+          rgba(255,255,255,.2) 10px,
+          rgba(255,255,255,.2) 20px
+        )
+      `,
           }}
         />
 
-        <div className="flex h-full flex-col justify-between p-7 pt-9">
+        {/* Changed min-h-full back to h-full and added pb-8 to control space at the bottom */}
+        <div className="flex h-full flex-col justify-between p-7 pt-9 pb-8">
           <div className="space-y-6">
             <ProfileCard />
             <NavList pathname={pathname} />
             <NowPlaying />
           </div>
 
-          <div className="mt-7 border-t border-dashed border-[#d8b99d] pt-5 text-center text-[8px] font-black uppercase tracking-[0.18em] text-[#a87856]">
-            <span>made with</span>
-            <span className="mx-1 text-[#e85d04]">♥</span>
-            <span>and questionable decisions</span>
+          {/* Removed mb-6 so it stays fixed inside the padded container */}
+          <div className="mt-7 border-t border-dashed border-[#d8b99d] pt-5 pb-6 text-center text-[8px] font-black uppercase tracking-[0.18em] text-[#a87856]">
+            <span>made with love this time and still some oranges</span>
           </div>
         </div>
       </div>
     </aside>
   );
 }
-
-export { StarIcon };

@@ -1,11 +1,11 @@
 import Sidebar from "@/components/sidebar";
 import Footer from "@/components/footer";
 import ContactForm from "@/components/ContactForm";
+import EmailCopyButton from "@/components/EmailCopyButton";
 
 export const metadata = {
   title: "Contact · Almira",
-  description:
-    "Metadata description, nothing here.",
+  description: "Metadata description, nothing here.",
 };
 
 export default function ContactPage() {
@@ -38,10 +38,10 @@ export default function ContactPage() {
                 <div>
                   <div className="mb-2 flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#a45a2b]">
                     <span className="rounded-full border border-[#e85d04]/30 bg-[#fff4e7] px-3 py-1">
-                      say hello
+                      say hi!!
                     </span>
                     <span className="text-[#d0a98a]">•</span>
-                    <span>always down to chat</span>
+                    <span>always down bad to... i mean for chat</span>
                   </div>
 
                   <h1 className="text-3xl font-black leading-tight text-[#572300] sm:text-5xl">
@@ -69,19 +69,19 @@ export default function ContactPage() {
                   <strong className="mb-1 block font-black text-[#e85d04]">
                     Web Development
                   </strong>
-                  Building clean, interactive websites and fun web apps that look good and work great.
+                  building cool websites, today might be mine, but tomorrow could be yours
                 </div>
                 <div className="rounded-xl border border-[#ead7c3] bg-[#fff8ed] p-3.5">
                   <strong className="mb-1 block font-black text-[#e85d04]">
                     Art & Design
                   </strong>
-                  Creating custom graphics, 3D art, and visual assets for cool projects.
+                  i could not draw, i faked my cv for it
                 </div>
                 <div className="rounded-xl border border-[#ead7c3] bg-[#fff8ed] p-3.5">
                   <strong className="mb-1 block font-black text-[#e85d04]">
                     Casual Hangs
                   </strong>
-                  Always happy to chat about creative ideas, share feedback, or just connect.
+                  yes, i am happy for an online talk, i could not do rl talk for now
                 </div>
               </div>
             </div>
@@ -105,22 +105,14 @@ export default function ContactPage() {
                 </h3>
 
                 <p className="mt-2 text-xs font-semibold leading-5 text-[#70432a]">
-                  Prefer sending a direct email or checking out my social profiles? Take your pick!
+                  if you prefer sending me direct email or just follow me somewhere
                 </p>
 
                 <div className="mt-6 space-y-3">
-                  <a
-                    href="mailto:hello@almira.dev"
-                    className="flex items-center justify-between rounded-xl border border-[#d8b99d] bg-[#fffdf7] p-3 text-xs font-bold text-[#592a10] shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#e85d04] hover:text-[#e85d04]"
-                  >
-                    <span>hello@almira.dev</span>
-                    <span className="text-[10px] font-black text-[#a2633d]">
-                      EMAIL ME →
-                    </span>
-                  </a>
+                    <EmailCopyButton email="alrmclok@gmail.com" />
 
                   <a
-                    href="https://github.com"
+                    href="https://github.com/alrmclok"
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center justify-between rounded-xl border border-[#d8b99d] bg-[#fffdf7] p-3 text-xs font-bold text-[#592a10] shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#e85d04] hover:text-[#e85d04]"
@@ -132,12 +124,12 @@ export default function ContactPage() {
                   </a>
 
                   <a
-                    href="https://twitter.com"
+                    href="https://instagram.com/alrmclok"
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center justify-between rounded-xl border border-[#d8b99d] bg-[#fffdf7] p-3 text-xs font-bold text-[#592a10] shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#e85d04] hover:text-[#e85d04]"
                   >
-                    <span>Twitter / X</span>
+                    <span>Instagram</span>
                     <span className="text-[10px] font-black text-[#a2633d]">
                       SAY HI →
                     </span>
@@ -153,7 +145,7 @@ export default function ContactPage() {
                   </span>
                 </div>
                 <p className="text-xs font-bold text-[#6a3218]">
-                  I usually get back to messages within 24 to 48 hours. Can't wait to hear from you!
+                  no you do not, or when i checked the form, thank you!!
                 </p>
               </div>
             </div>

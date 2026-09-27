@@ -149,6 +149,21 @@ a {
   background: var(--accent);
 }
 
+
+/* globals.css — hide the native thumb completely, we're drawing our own */
+.seek-thumb-hidden::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  opacity: 0; /* invisible but still draggable/clickable */
+}
+.seek-thumb-hidden::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  border: none;
+}
+
 /* Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,5 +1,6 @@
 import Sidebar from "@/components/sidebar";
 import Footer from "@/components/footer";
+import MusicBox from "@/components/musicBox";
 
 export const metadata = {
   title: "About · Almira",
@@ -9,18 +10,34 @@ export const metadata = {
 const INTERESTS = [
   // mix your actual interests + fandoms here, in whatever order feels right
   "geometry dash",
-  "pixel art",
-  "3d sculpting",
-  "lo-fi playlists",
-  "web dev at 2am",
-  "// add more here",
+  "illustration",
+  "fantube",
+  "3d modeling",
+  "something in godot",
+  "ren'py too",
+  "undertale n' deltarune",
+  "fantube",
+  "bfdi",
+  "inanimate insanity",
+  "specific but icedcave",
+  "fantube",
+  "grief 97%",
+  "logitech k120 keyboard",
+  "hatsune miku",
+  "did i already mentioned fantube?",
+  "sandrone (never played the game)",
+  "larp something",
+  "primadona",
+  "████",
 ];
 
 const FUN_FACTS = [
-  "// e.g. favorite GD level, a running joke, a weird habit while coding",
-  "// e.g. something people are surprised to learn about you",
-  "// e.g. a small obsession that has nothing to do with dev work",
-  "// e.g. your go-to snack/drink while working",
+  "// my favorite gd level is future funk, the first and ii. it has cool deco, cool creator, and cool gameplay",
+  "// i don't really have much friends (maybe not even a single bit :cry:), BUT i could say, well, say something! yeah...",
+  "// I FUCKING LOVE ORANGES, not really much as i got it from mbg and it is pretty much not the best orange you could have, might considering to buy some when groceries time",
+  "// when i was working on something, i don't go outside to buy something, i would just starve to sleep if my parents does not come home bringing me something to eat or drink, but pretty much a chips is to go",
+  "// to clarify that i STILL go outside, just not when coming back home from school, maybe weekend, maybe not, depends",
+  "// the main page formerly had a fading checkerboard background, but was scrapped since... since when? gasp*, mandildo effect"
 ];
 
 export default function AboutPage() {
@@ -47,13 +64,12 @@ export default function AboutPage() {
         <main className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-6 px-3 pt-5 pb-0 sm:gap-8 sm:px-7 sm:pt-7 sm:pb-0 lg:px-10 lg:pt-10 lg:pb-0">
           {/* ---- 1. Profile banner card ---- */}
           <section className="relative">
-
             <div className="relative overflow-hidden rounded-2xl border-2 border-[#8f3600] bg-[#fffdf7] shadow-[6px_7px_0_#d8bba0]">
               {/* banner image / gradient */}
               <div className="relative w-full aspect-[4/1] overflow-hidden border-b-2 border-[#8f3600]">
                 <img
                   src="/images/banner.png"
-                  alt=""
+                  alt="FanTube"
                   className="h-full w-full max-w-full object-cover"
                 />
                 <div
@@ -83,7 +99,7 @@ export default function AboutPage() {
                   <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-[#e85d04] bg-white">
                     <img
                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4Rzh9tdKflcBfT6USteYSoe1sQpjGvuywhCv1YFO-gw&s"
-                      alt="Almira"
+                      alt="FanTube"
                       className="h-full w-full max-w-full object-cover"
                     />
                   </div>
@@ -102,7 +118,7 @@ export default function AboutPage() {
 
                   <div className="flex flex-wrap justify-center gap-1.5 sm:justify-start">
                     <span className="rounded border border-[#e85d04] bg-[#e85d04] px-2 py-1 text-[9px] font-black text-white">
-                      she/her
+                      she/they/any
                     </span>
                     <span className="rounded border border-[#d7b99d] bg-white px-2 py-1 text-[9px] font-black text-[#70432a]">
                       {/* add another tag, e.g. age range, timezone, "chronically online" etc */}
@@ -124,7 +140,7 @@ export default function AboutPage() {
               <div className="mb-5 flex items-end justify-between gap-3 border-b-2 border-dashed border-[#e4cdb8] pb-4 sm:mb-6 sm:gap-4">
                 <div>
                   <p className="mb-1 text-[9px] font-black uppercase tracking-[0.2em] text-[#e85d04]">
-                    field notes, continued
+                    field notes (again)
                   </p>
                   <h3 className="text-xl font-black tracking-tight text-[#592a10] sm:text-2xl">
                     a lil more about me
@@ -141,11 +157,13 @@ export default function AboutPage() {
                   </span>
                   <p>
                     <strong className="text-[#e85d04]">
-                      How I got into this
+                      How I got into stuff like this
                     </strong>
                     <br />
-                    {/* your origin story — how'd you start coding/art/3D? */}
-                    add a sentence or two here
+                    started coding because of a school project and it turned out
+                    to be as easy as peeling oranges ig... for drawing and
+                    design, honestly no idea when it started exactly, maybe
+                    somewhere between 2019-2022 idk
                   </p>
                 </div>
 
@@ -157,12 +175,12 @@ export default function AboutPage() {
                     <strong className="text-[#e85d04]">
                       How I actually work
                     </strong>
-                    <br />
-                    {/* sketch first? code at 2am? editor/setup? */}
-                    add a sentence or two here
+                    <br />i don't just magically get ideas and code them lol i
+                    dump everything into a random markdown file for reference,
+                    and then either completely forget it exists forever OR
+                    fixate on it months after that depending on the mood
                   </p>
                 </div>
-
                 <div className="flex gap-3">
                   <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#fff0dd] text-[10px] font-black text-[#e85d04]">
                     07
@@ -171,14 +189,13 @@ export default function AboutPage() {
                     <strong className="text-[#e85d04]">Right now I'm...</strong>
                     <br />
                     {/* learning / working on / into */}
-                    add a sentence or two here
+                    gooning
                   </p>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* ---- 3. Interests & fandoms (combined tags) ---- */}
           {/* ---- 3. Interests & fandoms (combined tags) ---- */}
           <div className="relative">
             <section className="relative overflow-hidden rounded-2xl border-2 border-[#d8b99d] bg-[#f7ecdc] p-4 sm:p-7">
@@ -190,7 +207,7 @@ export default function AboutPage() {
               </p>
 
               <h3 className="mt-2 text-2xl font-black tracking-[-0.04em] text-[#572300] sm:text-3xl">
-                interests &amp; fandoms
+                interests &amp; maybe fandom too
               </h3>
 
               <div className="mt-5 flex flex-wrap gap-2">
@@ -209,13 +226,61 @@ export default function AboutPage() {
             <div className="absolute -bottom-3 -right-1 z-20 h-14 w-14 rotate-12 transition-transform duration-200 hover:scale-110 active:scale-95 sm:-bottom-5 sm:-right-5 sm:h-18 sm:w-18">
               <img
                 src="/images/stickers/fan.png"
-                alt="Sticker"
+                alt="Fan"
                 className="h-full w-full object-contain drop-shadow-[3px_4px_0px_rgba(143,54,0,0.2)]"
               />
             </div>
           </div>
 
-          {/* ---- 4. Fun / random facts (numbered) ---- */}
+          {/* ---- 3.5. Music section!! ---- */}
+          <section className="relative">
+            {/* Dynamic Header Counter */}
+            <div className="mb-6 flex items-center justify-between border-b border-dashed border-[#ddc5ad] pb-2">
+              <div className="flex items-center gap-2">
+                <span className="animate-spin [animation-duration:6s] text-[#e85d04]">
+                  ✦
+                </span>
+                <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#4d2b19]">
+                  Fav Music!
+                </h3>
+              </div>
+              <span className="text-[9px] font-bold uppercase tracking-wider text-[#a87856] bg-[#4d2b19]/5 px-2 py-0.5 rounded border border-[#ddc5ad]/40">
+                Total: 3 Tracks
+              </span>
+            </div>
+
+            {/* Smart grid stretches the last item if total count is odd */}
+            <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
+              <div className="w-full flex justify-center">
+                <MusicBox
+                  title="Foto Kita Blur"
+                  artist="Sal Priadi"
+                  trackId="0qbRvZ1alpPGmV52wKb2gJ"
+                  badge="Favorite #1"
+                  accentColor="#481800"
+                />
+              </div>
+              <div className="w-full flex justify-center">
+                <MusicBox
+                  title="Katakan Saja"
+                  artist="Adikara"
+                  trackId="6bIQQJk47tJsUmlqd1hEUW"
+                  badge="Favorite #2"
+                  accentColor="#535353"
+                />
+              </div>
+              <div className="w-full flex justify-center md:col-span-2 md:max-w-none">
+                <MusicBox
+                  title="Lalu Biru"
+                  artist="Eleanor Whisper"
+                  trackId="3iC60wudai0qrFnkFUDHSs"
+                  badge="Favorite #3"
+                  accentColor="#9F1302"
+                />
+              </div>
+            </div>
+          </section>
+
           {/* ---- 4. Fun / random facts (numbered) ---- */}
           {/* 🌟 CRITICAL FIX: Keeping this outer layout block relative so our breakout targets the card box wrapper */}
           <section className="relative">
@@ -248,7 +313,7 @@ export default function AboutPage() {
               <div className="absolute -bottom-3 -left-3 z-20 w-14 h-14 -rotate-12 transition-transform duration-200 hover:scale-110 active:scale-95 sm:-bottom-5 sm:-left-5 sm:w-18 sm:h-18">
                 <img
                   src="/images/stickers/testtube.png"
-                  alt="Sticker"
+                  alt="Test Tube"
                   className="h-full w-full max-w-full object-contain filter drop-shadow-[2px_3px_0px_rgba(143,54,0,0.2)]"
                 />
               </div>

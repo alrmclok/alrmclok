@@ -1,5 +1,6 @@
 import Link from "next/link";
-import Sidebar, { StarIcon } from "@/components/sidebar";
+import Sidebar from "@/components/sidebar";
+import { StarIcon } from "lucide-react";
 import { PROJECTS_DATA } from "./projects/data";
 import Footer from "@/components/footer";
 
@@ -38,8 +39,6 @@ export default function HomePage() {
           <section className="relative mb-8 sm:mb-10">
             {/* ↑ added mb-8/sm:mb-10 so the breakout sticker at the bottom
       has room and doesn't collide with whatever comes next */}
-
-            <div className="absolute -left-2 top-5 h-full w-full rotate-1 rounded-2xl bg-[#e85d04]/10" />
 
             <div className="relative rounded-2xl border-2 border-[#8f3600] bg-[#fffdf7] shadow-[6px_7px_0_#d8bba0]">
               <div
@@ -82,7 +81,7 @@ export default function HomePage() {
                   </h2>
 
                   <p className="mt-5 max-w-xl text-xs font-semibold leading-6 text-[#70432a] sm:mt-6 sm:text-base sm:leading-7">
-                    Blah blah blah, description here.
+                    blah blah blah, description here
                   </p>
 
                   <div className="mt-6 flex flex-wrap gap-2 sm:mt-7">
@@ -107,13 +106,13 @@ export default function HomePage() {
                       <span className="text-[9px] font-black uppercase tracking-widest text-[#9d3c00]">
                         desk note
                       </span>
-                      <StarIcon className="h-4 w-4 fill-[#e85d04]" />
+                      <StarIcon className="h-5 w-5 fill-[#e85d04] stroke-0" />
                     </div>
 
                     <div className="space-y-2 text-[10px] font-bold text-[#6a3218]">
-                      <p>✦ make weird things</p>
-                      <p>✦ learn something new</p>
-                      <p>✦ ship the silly idea</p>
+                      <p>✦ eat edible stuff</p>
+                      <p>✦ do something here</p>
+                      <p>✦ sleep (maybe)</p>
                       <p>✦ repeat</p>
                     </div>
 
@@ -140,7 +139,7 @@ export default function HomePage() {
                   <div className="transition-transform duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] peer-checked:rotate-360">
                     <img
                       src="/images/stickers/fantube_st.png"
-                      alt="Almira"
+                      alt="FanTube"
                       className="h-full w-full max-w-full object-contain filter drop-shadow-[0px_4px_0px_rgba(143,54,0,0.15)]"
                     />
                   </div>
@@ -178,7 +177,7 @@ export default function HomePage() {
                         Name / Pronouns
                       </strong>
                       <br />
-                      Almira (she/her)
+                      Almira (she/they/any)
                     </p>
                   </div>
 
@@ -191,7 +190,7 @@ export default function HomePage() {
                         Things I like doing
                       </strong>
                       <br />
-                      web dev, illustration, 3D sculpting & music
+                      web dev, illustration, game n' stuff
                     </p>
                   </div>
 
@@ -213,7 +212,7 @@ export default function HomePage() {
                     <p>
                       <strong className="text-[#e85d04]">Current goal</strong>
                       <br />
-                      building cool personal projects & open source tools
+                      building cool projects & open source tools
                     </p>
                   </div>
                 </div>
@@ -235,7 +234,7 @@ export default function HomePage() {
                     <div className="transition-transform duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] peer-checked:rotate-360">
                       <img
                         src="/images/stickers/fan_bowtie.png"
-                        alt="Almira"
+                        alt="Fan"
                         className="h-full w-full max-w-full object-contain filter drop-shadow-[0px_4px_0px_rgba(143,54,0,0.15)]"
                       />
                     </div>
@@ -243,9 +242,10 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="relative rounded-2xl border-2 border-[#d8b99d] bg-[#f7ecdc] p-4 pb-16 sm:p-7">
+            {/* 1. Added 'flex flex-col' and removed 'pb-16' so the heights match naturally */}
+            <div className="relative flex flex-col rounded-2xl border-2 border-[#d8b99d] bg-[#f7ecdc] p-4 sm:p-7">
               {/* clipping layer — ONLY wraps the decorative circle, matches the
-      card's own rounded-2xl so the circle gets clipped to the card shape */}
+card's own rounded-2xl so the circle gets clipped to the card shape */}
               <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
                 <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full border-[18px] border-[#e85d04]/10" />
               </div>
@@ -262,24 +262,27 @@ export default function HomePage() {
 
               <div className="space-y-3 text-xs font-semibold leading-6 text-[#70432a]">
                 <p>
-                  This site is part portfolio, part archive, and part evidence
-                  that I actually finished some of those projects.
+                  this site is a portfolio with maybe i'd update projects that
+                  i'm currently doing, also just that, rants or something else
+                  is on my social media in{" "}
+                  <Link href="/contact">
+                    <span className="underline decoration-2 decoration-[#e85d04] underline-offset-4">
+                      contact!
+                    </span>
+                  </Link>
                 </p>
-                <p>
-                  Some parts are totally finished, but others will probably need
-                  to be rebuilt a few times.
-                </p>
+                <p>some parts are totally finished, no catch, I hope</p>
               </div>
 
-              <div className="mt-7 flex items-center gap-3">
-                <div className="h-2 w-2 rounded-full bg-[#e85d04]" />
+              <div className="mt-auto pt-12 flex items-center gap-3">
+                <div className="h-2 w-2 rounded-full -translate-y-[1px] bg-[#e85d04]" />
                 <span className="text-[9px] font-black uppercase tracking-widest text-[#9d3c00]">
-                  no perfect projects required
+                  no need to be perfect
                 </span>
               </div>
 
               {/* sticker is a sibling of the clipping layer, not inside it —
-      so it still bleeds past the card edge freely */}
+so it still bleeds past the card edge freely */}
               <div className="absolute -bottom-3 -right-3 z-20 w-14 h-14 rotate-12 transition-transform duration-200 hover:scale-110 active:scale-95 sm:-bottom-5 sm:-right-5 sm:w-20 sm:h-20">
                 <label className="block cursor-pointer">
                   {/* Hidden checkbox that tracks the click state */}
@@ -289,7 +292,7 @@ export default function HomePage() {
                   <div className="transition-transform duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] peer-checked:rotate-360">
                     <img
                       src="/images/stickers/testtube.png"
-                      alt="Almira"
+                      alt="Fan"
                       className="h-full w-full max-w-full object-contain filter drop-shadow-[0px_4px_0px_rgba(143,54,0,0.15)]"
                     />
                   </div>
@@ -368,7 +371,7 @@ export default function HomePage() {
                         project archive
                       </span>
 
-                      <StarIcon className="h-3.5 w-3.5 fill-[#e85d04] transition-transform duration-200 group-hover:rotate-45" />
+                      <StarIcon className="h-5 w-5 fill-[#e85d04] stroke-0 transition-transform duration-200 group-hover:rotate-45" />
                     </div>
                   </Link>
                 ))}

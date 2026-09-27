@@ -1,5 +1,6 @@
 import Link from "next/link";
-import Sidebar, { StarIcon } from "@/components/sidebar";
+import Sidebar from "@/components/sidebar";
+import { StarIcon } from "lucide-react";
 import Footer from "@/components/footer";
 import { PROJECTS_DATA } from "./data";
 
@@ -61,8 +62,7 @@ export default function ProjectsPage() {
               </h1>
 
               <p className="mt-4 max-w-xl text-xs font-semibold leading-6 text-[#70432a] sm:text-base sm:leading-7">
-                every file in the cabinet — web stuff, 3D things, game dev
-                experiments, and whatever else I got stuck making at 2 AM.
+                it says gullible on the ceiling
               </p>
 
               <div className="mt-5 text-[9px] font-black uppercase tracking-widest text-[#9d3c00]">
@@ -94,7 +94,7 @@ export default function ProjectsPage() {
 
                     <div className="mb-3">
                       <p className="mb-1 text-[8px] font-black uppercase tracking-widest text-[#a2633d]">
-                        {project.date} · {project.role}
+                        {project.date}
                       </p>
                       <h4 className="break-words text-base font-black leading-tight text-[#592a10] transition-colors group-hover:text-[#e85d04] sm:text-lg">
                         {project.title}
@@ -117,9 +117,9 @@ export default function ProjectsPage() {
 
                     <div className="mt-6 flex items-center justify-between border-t border-dashed border-[#ead7c3] pt-3">
                       <span className="text-[8px] font-black uppercase tracking-widest text-[#b08362]">
-                        {project.client ?? "personal project"}
+                        {" "}
                       </span>
-                      <StarIcon className="h-3.5 w-3.5 fill-[#e85d04] transition-transform duration-200 group-hover:rotate-45" />
+                      <StarIcon className="h-5 w-5 fill-[#e85d04] stroke-0 transition-transform duration-200 group-hover:rotate-45" />
                     </div>
                   </Link>
                 ))}

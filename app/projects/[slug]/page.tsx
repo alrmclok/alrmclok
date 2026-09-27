@@ -264,33 +264,14 @@ export default async function ProjectDetailPage({ params }: Props) {
                   </p>
                 </div>
 
-                <div className="mt-7 grid grid-cols-2 gap-x-5 gap-y-5 border-t border-dashed border-[#ead7c3] pt-5 sm:grid-cols-3 sm:gap-5">
-                  <div>
-                    <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[#b08362]">
-                      timeline
-                    </p>
-                    <p className="mt-1.5 text-xs font-bold text-[#592a10]">
-                      {project.date}
-                    </p>
-                  </div>
-
-                  <div>
-                    <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[#b08362]">
-                      role
-                    </p>
-                    <p className="mt-1.5 text-xs font-bold text-[#592a10]">
-                      {project.role}
-                    </p>
-                  </div>
-
-                  <div className="col-span-2 sm:col-span-1">
-                    <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[#b08362]">
-                      client
-                    </p>
-                    <p className="mt-1.5 text-xs font-bold text-[#592a10]">
-                      {project.client ?? "Personal Project"}
-                    </p>
-                  </div>
+                <div className="mt-7 flex items-center gap-2 border-t border-dashed border-[#ead7c3] pt-5">
+                  <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[#b08362]">
+                    timeline
+                  </p>
+                  <span className="h-1 w-1 rounded-full bg-[#dab88f]" />
+                  <p className="text-xs font-bold text-[#592a10]">
+                    {project.date}
+                  </p>
                 </div>
 
                 {(project.links?.github || project.links?.live) && (
@@ -300,7 +281,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                         href={project.links.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex -translate-y-[2px] items-center gap-2 rounded-lg bg-[#e85d04] px-3.5 py-2.5 text-[10px] font-black uppercase tracking-wider text-white shadow-[3px_3px_0_#9d3c00] transition-all hover:-translate-y-0.5 hover:bg-[#d95000] hover:shadow-[4px_4px_0_#9d3c00] active:translate-y-0 active:shadow-[1px_1px_0_#9d3c00]"
+                        className="inline-flex -translate-y-[2px] items-center gap-2 rounded-lg bg-[#e85d04] px-3.5 py-2.5 text-[10px] font-black uppercase tracking-wider text-white shadow-[3px_3px_0_#9d3c00] transition-all duration-200 hover:-translate-y-[4px] hover:-translate-x-[2px] hover:bg-[#d95000] hover:shadow-[5px_5px_0_#9d3c00] active:translate-y-0 active:shadow-[1px_1px_0_#9d3c00]"
                       >
                         view live
                         <span>↗</span>
@@ -389,7 +370,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 </p>
 
                 <p className="mt-1 text-[10px] font-semibold text-[#9a6d4d]">
-                  continue exploring →
+                  see next
                 </p>
               </div>
 
